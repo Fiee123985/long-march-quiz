@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#05081a"/>
+      <stop offset=".32" stop-color="#121c44"/>
+      <stop offset=".58" stop-color="#36386d"/>
+      <stop offset=".78" stop-color="#7b557f"/>
+      <stop offset="1" stop-color="#d69490"/>
+    </linearGradient>
+    <radialGradient id="moonGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff2dd" stop-opacity=".9"/>
+      <stop offset=".25" stop-color="#ffdcb9" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#ffdcb9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="far" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a3160"/>
+      <stop offset="1" stop-color="#171d3d"/>
+    </linearGradient>
+    <linearGradient id="mid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3c4479"/>
+      <stop offset=".55" stop-color="#2a3161"/>
+      <stop offset="1" stop-color="#1b2145"/>
+    </linearGradient>
+    <linearGradient id="snow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4f7ff"/>
+      <stop offset=".55" stop-color="#dbe4ff"/>
+      <stop offset="1" stop-color="#aebce8"/>
+    </linearGradient>
+    <linearGradient id="slope" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c8d5f8"/>
+      <stop offset=".4" stop-color="#9fb2e4"/>
+      <stop offset="1" stop-color="#687cb4"/>
+    </linearGradient>
+    <linearGradient id="trail" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef4ff" stop-opacity=".65"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".2"/>
+    </linearGradient>
+    <pattern id="snowfall" width="150" height="150" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="24" r="2.2" fill="#ffffff" opacity=".45"/>
+      <circle cx="64" cy="70" r="1.5" fill="#ffffff" opacity=".35"/>
+      <circle cx="112" cy="38" r="2.6" fill="#ffffff" opacity=".4"/>
+      <circle cx="34" cy="118" r="1.7" fill="#ffffff" opacity=".3"/>
+      <circle cx="96" cy="126" r="2" fill="#ffffff" opacity=".35"/>
+      <circle cx="138" cy="94" r="1.2" fill="#ffffff" opacity=".25"/>
+    </pattern>
+    <filter id="soft" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="soft2" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="clip"><rect width="1600" height="900"/></clipPath>
+    <radialGradient id="vig" cx=".5" cy=".46" r=".74">
+      <stop offset=".5" stop-color="#02040c" stop-opacity="0"/>
+      <stop offset="1" stop-color="#02040c" stop-opacity=".5"/>
+    </radialGradient>
+  </defs>
+
+  <g clip-path="url(#clip)">
+    <rect width="1600" height="900" fill="url(#sky)"/>
+
+    <!-- 月亮与星 -->
+    <circle cx="1190" cy="170" r="230" fill="url(#moonGlow)"/>
+    <circle cx="1190" cy="170" r="70" fill="#fff2df" opacity=".95"/>
+    <circle cx="1190" cy="170" r="60" fill="#fffaf0"/>
+    <circle cx="1170" cy="150" r="10" fill="#ead8c2" opacity=".5"/>
+    <circle cx="1208" cy="190" r="6" fill="#ead8c2" opacity=".4"/>
+    <g fill="#e6eeff">
+      <circle cx="140" cy="100" r="2" opacity=".65"/>
+      <circle cx="300" cy="70" r="1.5" opacity=".5"/>
+      <circle cx="470" cy="140" r="2.4" opacity=".7"/>
+      <circle cx="640" cy="80" r="1.4" opacity=".5"/>
+      <circle cx="810" cy="160" r="2" opacity=".55"/>
+      <circle cx="980" cy="80" r="1.6" opacity=".5"/>
+      <circle cx="1370" cy="120" r="2.2" opacity=".6"/>
+      <circle cx="1490" cy="210" r="1.4" opacity=".4"/>
+      <circle cx="1050" cy="250" r="1.5" opacity=".4"/>
+    </g>
+
+    <!-- 轻云 -->
+    <g filter="url(#soft)" opacity=".4">
+      <path d="M-80 300 C180 260 340 300 520 274 C700 248 860 292 1040 270 C1200 250 1380 286 1680 258 L1680 330 C1380 356 1200 322 1040 340 C860 362 700 318 520 344 C340 370 180 330 -80 370 Z" fill="#7d6b96"/>
+      <path d="M-60 430 C200 400 380 432 560 410 C760 386 920 420 1120 402 C1320 384 1480 410 1660 392 L1660 432 C1480 450 1320 424 1120 442 C920 460 760 426 560 450 C380 472 200 440 -60 470 Z" fill="#9b82a8" opacity=".5"/>
+    </g>
+
+    <!-- 远山 -->
+    <path d="M-40 630 L80 500 L170 560 L260 450 L360 570 L470 500 L590 610 L710 520 L820 610 L940 500 L1060 610 L1180 520 L1290 600 L1410 490 L1520 590 L1660 510 L1660 900 L-40 900 Z" fill="url(#far)" opacity=".85"/>
+    <path d="M80 500 L118 548 L96 542 L110 560 L82 556 L70 570 L56 548 Z" fill="#b6c2ea" opacity=".35"/>
+    <path d="M260 450 L300 506 L278 498 L292 520 L264 512 L250 528 L236 504 Z" fill="#b6c2ea" opacity=".35"/>
+    <path d="M940 500 L980 552 L956 544 L972 566 L946 558 L932 574 L918 550 Z" fill="#b6c2ea" opacity=".32"/>
+    <path d="M1410 490 L1450 544 L1426 536 L1442 558 L1416 550 L1402 566 L1388 542 Z" fill="#b6c2ea" opacity=".3"/>
+
+    <!-- 主山脉 -->
+    <path d="M-80 700 L120 540 L220 610 L330 390 L450 540 L560 480 L700 650 L820 540 L950 640 L1080 470 L1200 590 L1320 500 L1450 640 L1580 550 L1680 680 L1680 900 L-80 900 Z" fill="url(#mid)"/>
+    <path d="M-80 700 L120 540 L220 610 L330 390 L450 540 L560 480 L700 650 L820 540 L950 640 L1080 470 L1200 590 L1320 500 L1450 640 L1580 550 L1680 680" fill="none" stroke="#6b78b2" stroke-width="3" opacity=".35"/>
+
+    <!-- 雪帽：主峰 -->
+    <path d="M330 390 L398 478 L374 470 L384 502 L356 488 L346 518 L326 494 L304 512 L294 480 L270 490 L292 456 L274 446 Z" fill="url(#snow)"/>
+    <path d="M330 390 L294 480 L304 512 L326 494 L346 518 L356 488 L384 502 L374 470 L398 478 Z" fill="#f7f9ff" opacity=".35"/>
+    <path d="M330 390 L346 518 L326 494 L304 512 L294 480 Z" fill="#b8c7f2" opacity=".45"/>
+    <path d="M330 404 L340 464" stroke="#8fa0d6" stroke-width="3" opacity=".4"/>
+
+    <!-- 雪帽：左次峰 -->
+    <path d="M120 540 L158 584 L140 580 L148 600 L128 592 L118 610 L104 592 L88 600 L94 580 L76 586 Z" fill="url(#snow)" opacity=".9"/>
+    <path d="M120 540 L118 610 L104 592 L88 600 L94 580 L76 586 Z" fill="#c3d0f5" opacity=".5"/>
+
+    <!-- 雪帽：中峰 -->
+    <path d="M560 480 L610 538 L590 532 L600 556 L578 548 L568 570 L552 552 L534 560 L540 538 L520 542 Z" fill="url(#snow)" opacity=".85"/>
+    <path d="M560 480 L568 570 L552 552 L534 560 L540 538 L520 542 Z" fill="#bdcbf3" opacity=".5"/>
+
+    <!-- 雪帽：右峰 -->
+    <path d="M1080 470 L1146 550 L1120 542 L1132 570 L1104 560 L1092 586 L1072 562 L1050 572 L1058 548 L1034 552 Z" fill="url(#snow)"/>
+    <path d="M1080 470 L1058 548 L1072 562 L1092 586 L1104 560 L1132 570 L1120 542 L1146 550 Z" fill="#f8faff" opacity=".35"/>
+    <path d="M1080 470 L1092 586 L1072 562 L1050 572 L1058 548 L1034 552 Z" fill="#b8c7f2" opacity=".45"/>
+    <path d="M1080 486 L1096 552" stroke="#8fa0d6" stroke-width="3" opacity=".4"/>
+
+    <!-- 雪帽：远右峰 -->
+    <path d="M1320 500 L1358 544 L1340 540 L1348 560 L1328 552 L1318 570 L1304 552 L1288 560 L1294 540 L1276 546 Z" fill="url(#snow)" opacity=".8"/>
+
+    <!-- 山体沟壑 -->
+    <g fill="none" stroke="#161c3d" stroke-linecap="round">
+      <path d="M330 430 C310 480 290 530 260 600" stroke-width="6" opacity=".25"/>
+      <path d="M1080 510 C1060 560 1030 610 1000 680" stroke-width="6" opacity=".25"/>
+      <path d="M560 500 C540 550 520 600 500 660" stroke-width="4" opacity=".2"/>
+      <path d="M120 560 C110 620 90 680 70 740" stroke-width="4" opacity=".2"/>
+      <path d="M1200 610 C1180 660 1160 710 1150 760" stroke-width="5" opacity=".22"/>
+    </g>
+
+    <!-- 山脚雾 -->
+    <g filter="url(#soft)" opacity=".55">
+      <ellipse cx="380" cy="700" rx="430" ry="70" fill="#a8b6e2"/>
+      <ellipse cx="1150" cy="690" rx="360" ry="54" fill="#b6c2ea"/>
+      <ellipse cx="780" cy="740" rx="520" ry="46" fill="#93a3d4" opacity=".7"/>
+    </g>
+
+    <!-- 前景雪坡 -->
+    <path d="M-40 760 C180 710 380 720 560 750 C740 780 900 726 1080 740 C1260 754 1440 720 1660 750 L1660 900 L-40 900 Z" fill="url(#slope)"/>
+    <path d="M-40 790 C220 750 430 782 620 790 C820 798 980 758 1180 776 C1360 792 1500 766 1660 786 L1660 900 L-40 900 Z" fill="#5d70a7" opacity=".45"/>
+    <path d="M-40 840 C200 810 420 842 640 836 C860 830 1080 806 1280 824 C1420 836 1540 824 1660 832 L1660 900 L-40 900 Z" fill="#3f5188" opacity=".35"/>
+
+    <!-- 雪地纹理 -->
+    <g fill="none" stroke="#f4f8ff" stroke-linecap="round" opacity=".35">
+      <path d="M120 820 C260 806 380 816 500 808" stroke-width="3"/>
+      <path d="M880 812 C1020 798 1140 806 1260 800" stroke-width="3"/>
+      <path d="M300 858 C440 846 560 856 680 850" stroke-width="2"/>
+      <path d="M1040 850 C1180 838 1300 846 1420 840" stroke-width="2"/>
+      <path d="M540 792 C620 786 700 790 780 786" stroke-width="2" opacity=".6"/>
+    </g>
+
+    <!-- 蜿蜒雪径 -->
+    <path d="M690 910 C760 850 660 812 720 776 C770 746 840 752 890 722" fill="none" stroke="url(#trail)" stroke-width="46" stroke-linecap="round"/>
+    <path d="M690 910 C760 850 660 812 720 776 C770 746 840 752 890 722" fill="none" stroke="#f8fbff" stroke-width="2" stroke-dasharray="2 22" opacity=".55"/>
+
+    <!-- 行军队伍 -->
+    <g fill="#11162e" opacity=".95">
+      <!-- 旗手 -->
+      <g transform="translate(885 708) scale(.7)">
+        <circle cx="0" cy="-48" r="9"/>
+        <path d="M-9 -37 Q0 -44 9 -37 L12 2 L6 2 L2 -18 L0 2 L-5 2 L-9 -18 L-14 2 L-20 2 Z"/>
+        <path d="M-8 -32 L-20 -8 M8 -32 L20 -10" stroke="#11162e" stroke-width="5" stroke-linecap="round"/>
+        <path d="M-4 2 L-9 34 M4 2 L10 34" stroke="#11162e" stroke-width="5" stroke-linecap="round"/>
+        <path d="M17 -44 L19 -128" stroke="#3b2a20" stroke-width="4"/>
+        <path d="M18 -124 C46 -136 68 -118 92 -128 C82 -110 94 -96 86 -80 C58 -70 38 -86 18 -78 Z" fill="#c92f3f"/>
+        <polygon points="42,-108 45,-101 52,-101 46,-96 48,-89 42,-93 36,-89 38,-96 32,-101 39,-101" fill="#ffd166" opacity=".9"/>
+      </g>
+      <!-- 队伍 -->
+      <g transform="translate(832 720) scale(.62)">
+        <circle cx="0" cy="-44" r="8"/>
+        <path d="M-8 -34 Q0 -41 8 -34 L11 2 L5 2 L2 -16 L0 2 L-5 2 L-8 -16 L-12 2 L-17 2 Z"/>
+        <path d="M-7 -29 L-18 -7 M7 -29 L18 -9" stroke="#11162e" stroke-width="5" stroke-linecap="round"/>
+        <path d="M-4 2 L-8 30 M4 2 L9 30" stroke="#11162e" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(780 730) scale(.58)">
+        <circle cx="0" cy="-44" r="8"/>
+        <path d="M-8 -34 Q0 -41 8 -34 L11 2 L5 2 L2 -16 L0 2 L-5 2 L-8 -16 L-12 2 L-17 2 Z"/>
+        <path d="M-7 -29 L-18 -7 M7 -29 L18 -9" stroke="#11162e" stroke-width="5" stroke-linecap="round"/>
+        <path d="M-4 2 L-8 30 M4 2 L9 30" stroke="#11162e" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(726 742) scale(.6)">
+        <circle cx="0" cy="-44" r="8"/>
+        <path d="M-8 -34 Q0 -41 8 -34 L11 2 L5 2 L2 -16 L0 2 L-5 2 L-8 -16 L-12 2 L-17 2 Z"/>
+        <path d="M-7 -29 L-18 -7 M7 -29 L18 -9" stroke="#11162e" stroke-width="5" stroke-linecap="round"/>
+        <path d="M-4 2 L-8 30 M4 2 L9 30" stroke="#11162e" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(676 756) scale(.56)">
+        <circle cx="0" cy="-44" r="8"/>
+        <path d="M-8 -34 Q0 -41 8 -34 L11 2 L5 2 L2 -16 L0 2 L-5 2 L-8 -16 L-12 2 L-17 2 Z"/>
+        <path d="M-7 -29 L-18 -7 M7 -29 L18 -9" stroke="#11162e" stroke-width="5" stroke-linecap="round"/>
+        <path d="M-4 2 L-8 30 M4 2 L9 30" stroke="#11162e" stroke-width="5" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- 足迹 -->
+    <g fill="#8296c9" opacity=".45">
+      <ellipse cx="716" cy="832" rx="7" ry="3" transform="rotate(-16 716 832)"/>
+      <ellipse cx="744" cy="816" rx="7" ry="3" transform="rotate(-16 744 816)"/>
+      <ellipse cx="770" cy="798" rx="7" ry="3" transform="rotate(-16 770 798)"/>
+      <ellipse cx="792" cy="780" rx="7" ry="3" transform="rotate(-16 792 780)"/>
+      <ellipse cx="812" cy="762" rx="7" ry="3" transform="rotate(-16 812 762)"/>
+      <ellipse cx="842" cy="744" rx="7" ry="3" transform="rotate(-16 842 744)"/>
+    </g>
+
+    <!-- 风卷雪粒 -->
+    <g filter="url(#soft2)" opacity=".55">
+      <path d="M0 800 C200 784 360 804 520 792" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <path d="M980 780 C1160 766 1320 784 1500 770" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <path d="M300 860 C460 846 620 862 780 850" fill="none" stroke="#dfe8ff" stroke-width="1.5" opacity=".7"/>
+    </g>
+
+    <!-- 飘雪 -->
+    <rect width="1600" height="900" fill="url(#snowfall)"/>
+
+    <!-- 柔和暗角 -->
+    <rect width="1600" height="900" fill="url(#vig)"/>
+  </g>
+</svg>

@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <defs>
+    <linearGradient id="skin" x1="0" y1="0" x2="0.65" y2="1">
+      <stop offset="0" stop-color="#ffe4cd"/>
+      <stop offset=".52" stop-color="#f7c6a6"/>
+      <stop offset="1" stop-color="#df9b7d"/>
+    </linearGradient>
+    <linearGradient id="neck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e5ab8b"/>
+      <stop offset="1" stop-color="#c98267"/>
+    </linearGradient>
+    <linearGradient id="uniform" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#75846c"/>
+      <stop offset=".45" stop-color="#52604d"/>
+      <stop offset="1" stop-color="#303b30"/>
+    </linearGradient>
+    <linearGradient id="uniformDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#44513f"/>
+      <stop offset="1" stop-color="#263027"/>
+    </linearGradient>
+    <linearGradient id="cap" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#7d8c72"/>
+      <stop offset=".55" stop-color="#55644f"/>
+      <stop offset="1" stop-color="#394633"/>
+    </linearGradient>
+    <linearGradient id="leather" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6e4a32"/>
+      <stop offset="1" stop-color="#3d281b"/>
+    </linearGradient>
+    <radialGradient id="iris" cx=".4" cy=".35" r=".8">
+      <stop offset="0" stop-color="#8a5a3c"/>
+      <stop offset=".55" stop-color="#5b3526"/>
+      <stop offset="1" stop-color="#2b1714"/>
+    </radialGradient>
+    <radialGradient id="cheek" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#f2877a" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#f2877a" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#04060d" flood-opacity=".35"/>
+    </filter>
+    <filter id="starGlow" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="eyeClipL">
+      <path d="M157 235 Q176 218 195 232 Q181 251 163 249 Q158 244 157 235 Z"/>
+    </clipPath>
+    <clipPath id="eyeClipR">
+      <path d="M243 235 Q224 218 205 232 Q219 251 237 249 Q242 244 243 235 Z"/>
+    </clipPath>
+  </defs>
+
+  <g filter="url(#soft)">
+    <!-- 躯干 -->
+    <path d="M50 500 C56 416 96 372 158 352 L200 378 L242 352 C304 372 344 416 350 500 Z" fill="url(#uniform)"/>
+    <!-- 肩部结构线 -->
+    <path d="M158 352 C136 372 120 410 116 500" fill="none" stroke="#2c372b" stroke-width="3" opacity=".45"/>
+    <path d="M242 352 C264 372 280 410 284 500" fill="none" stroke="#2c372b" stroke-width="3" opacity=".45"/>
+    <!-- 领口 -->
+    <path d="M158 352 L200 380 L182 414 L146 378 Z" fill="url(#uniformDark)"/>
+    <path d="M242 352 L200 380 L218 414 L254 378 Z" fill="url(#uniformDark)"/>
+    <path d="M182 414 L200 380 L218 414 L200 432 Z" fill="#d8c9a8"/>
+    <!-- 红领章 -->
+    <path d="M163 362 L184 378 L177 395 L155 379 Z" fill="#c92f3f"/>
+    <path d="M237 362 L216 378 L223 395 L245 379 Z" fill="#c92f3f"/>
+    <!-- 领章高光 -->
+    <path d="M163 362 L184 378" stroke="#ff7a7a" stroke-width="1.5" opacity=".5"/>
+    <path d="M237 362 L216 378" stroke="#ff7a7a" stroke-width="1.5" opacity=".5"/>
+    <!-- 斜挎皮带 -->
+    <path d="M118 382 C152 418 196 452 262 484 L286 500 L258 500 C198 470 154 436 112 400 Z" fill="url(#leather)"/>
+    <path d="M118 382 C152 418 196 452 262 484" fill="none" stroke="#a97a52" stroke-width="2" opacity=".55"/>
+    <rect x="196" y="444" width="30" height="22" rx="4" transform="rotate(31 211 455)" fill="#8d653f" stroke="#c9a06f" stroke-width="2"/>
+    <rect x="203" y="450" width="16" height="10" rx="2" transform="rotate(31 211 455)" fill="#3c2a1c"/>
+    <!-- 纽扣 -->
+    <circle cx="200" cy="446" r="3.4" fill="#c9b68d"/>
+    <circle cx="200" cy="468" r="3.4" fill="#c9b68d"/>
+    <!-- 肩章 -->
+    <path d="M105 406 L145 392 L152 410 L112 424 Z" fill="#3b4838" stroke="#909d80" stroke-width="1.5"/>
+    <path d="M295 406 L255 392 L248 410 L288 424 Z" fill="#3b4838" stroke="#909d80" stroke-width="1.5"/>
+    <path d="M128 400 l5 11" stroke="#c92f3f" stroke-width="3"/>
+    <path d="M272 400 l-5 11" stroke="#c92f3f" stroke-width="3"/>
+    <!-- 颈部 -->
+    <path d="M176 318 L176 358 Q200 376 224 358 L224 318 Z" fill="url(#neck)"/>
+    <path d="M176 340 Q200 356 224 340 L224 356 Q200 370 176 356 Z" fill="#b8725a" opacity=".45"/>
+    <!-- 耳 -->
+    <ellipse cx="140" cy="246" rx="12" ry="20" fill="#f2b795"/>
+    <ellipse cx="260" cy="246" rx="12" ry="20" fill="#f2b795"/>
+    <path d="M140 238 q7 5 1 14" fill="none" stroke="#ce8d73" stroke-width="2" opacity=".6"/>
+    <path d="M260 238 q-7 5 -1 14" fill="none" stroke="#ce8d73" stroke-width="2" opacity=".6"/>
+    <!-- 脸 -->
+    <path d="M142 206 C142 144 168 118 200 118 C232 118 258 144 258 206 L255 258 C252 306 228 338 200 344 C172 338 148 306 145 258 Z" fill="url(#skin)"/>
+    <!-- 面部明暗 -->
+    <path d="M142 206 C142 144 168 118 200 118 L200 344 C172 338 148 306 145 258 Z" fill="#ffffff" opacity=".08"/>
+    <path d="M240 214 C248 252 244 296 224 324 C238 300 242 256 234 214 Z" fill="#c98368" opacity=".22"/>
+    <!-- 腮红 -->
+    <ellipse cx="168" cy="274" rx="17" ry="9" fill="url(#cheek)"/>
+    <ellipse cx="232" cy="274" rx="17" ry="9" fill="url(#cheek)"/>
+    <!-- 刘海 -->
+    <path d="M142 202 C144 168 165 150 188 154 C196 166 198 176 200 184 C205 170 213 158 224 154 C247 158 258 176 258 202 C245 190 232 190 224 200 C214 184 206 182 200 196 C192 182 182 182 174 198 C166 188 154 190 142 202 Z" fill="#2b2021"/>
+    <path d="M148 194 C160 178 176 174 190 182" fill="none" stroke="#4a3832" stroke-width="3" opacity=".55"/>
+    <!-- 帽子的阴影 -->
+    <path d="M146 190 Q200 174 254 190 L252 204 Q200 188 148 204 Z" fill="#1e1818" opacity=".35"/>
+    <!-- 八角帽 -->
+    <path d="M126 190 C124 120 156 106 200 106 C244 106 276 120 274 190 C252 176 226 172 200 172 C174 172 148 176 126 190 Z" fill="url(#cap)"/>
+    <path d="M128 184 C150 170 174 166 200 166 C226 166 250 170 272 184 L272 198 C248 184 226 180 200 180 C174 180 152 184 128 198 Z" fill="#34402f"/>
+    <path d="M200 108 L200 178" stroke="#2c382a" stroke-width="2" opacity=".5"/>
+    <path d="M158 116 L174 180" stroke="#2c382a" stroke-width="2" opacity=".35"/>
+    <path d="M242 116 L226 180" stroke="#2c382a" stroke-width="2" opacity=".35"/>
+    <path d="M126 190 C150 178 174 174 200 174" fill="none" stroke="#9aa98c" stroke-width="2" opacity=".5"/>
+    <path d="M274 190 C250 178 226 174 200 174" fill="none" stroke="#9aa98c" stroke-width="2" opacity=".5"/>
+    <!-- 红五星 -->
+    <g filter="url(#starGlow)">
+      <polygon points="200,134 204.7,145.5 217.1,146.4 207.6,154.5 210.6,167.7 200,160 189.4,167.7 192.4,154.5 182.9,146.4 195.3,145.5"
+        fill="#e23145" stroke="#ff8a8a" stroke-width="1.2"/>
+      <polygon points="200,141 202.4,147.4 209.2,147.9 204,152.3 205.6,159.5 200,155.4 194.4,159.5 196,152.3 190.8,147.9 197.6,147.4"
+        fill="#ff6b6b" opacity=".55"/>
+    </g>
+    <!-- 眉毛 -->
+    <path d="M156 212 Q174 202 194 210" fill="none" stroke="#2a1c1c" stroke-width="6" stroke-linecap="round"/>
+    <path d="M244 212 Q226 202 206 210" fill="none" stroke="#2a1c1c" stroke-width="6" stroke-linecap="round"/>
+    <!-- 眼睛 -->
+    <path d="M157 235 Q176 218 195 232 Q181 251 163 249 Q158 244 157 235 Z" fill="#fffaf6"/>
+    <g clip-path="url(#eyeClipL)">
+      <ellipse cx="178" cy="235" rx="11" ry="14" fill="url(#iris)"/>
+      <ellipse cx="178" cy="237" rx="6" ry="9" fill="#1d1110"/>
+      <circle cx="174" cy="228" r="4.2" fill="#ffffff"/>
+      <circle cx="182" cy="242" r="2" fill="#ffd8b8" opacity=".85"/>
+      <path d="M158 228 Q176 224 196 232" stroke="#3d2620" stroke-width="2" opacity=".35" fill="none"/>
+    </g>
+    <path d="M155 233 Q176 214 197 230" fill="none" stroke="#2a1a19" stroke-width="5" stroke-linecap="round"/>
+    <path d="M162 247 Q178 252 192 242" fill="none" stroke="#d99a86" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+    <path d="M243 235 Q224 218 205 232 Q219 251 237 249 Q242 244 243 235 Z" fill="#fffaf6"/>
+    <g clip-path="url(#eyeClipR)">
+      <ellipse cx="222" cy="235" rx="11" ry="14" fill="url(#iris)"/>
+      <ellipse cx="222" cy="237" rx="6" ry="9" fill="#1d1110"/>
+      <circle cx="218" cy="228" r="4.2" fill="#ffffff"/>
+      <circle cx="226" cy="242" r="2" fill="#ffd8b8" opacity=".85"/>
+      <path d="M242 228 Q224 224 204 232" stroke="#3d2620" stroke-width="2" opacity=".35" fill="none"/>
+    </g>
+    <path d="M245 233 Q224 214 203 230" fill="none" stroke="#2a1a19" stroke-width="5" stroke-linecap="round"/>
+    <path d="M238 247 Q222 252 208 242" fill="none" stroke="#d99a86" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+    <!-- 鼻子 -->
+    <path d="M196 262 Q200 268 204 262" fill="none" stroke="#c98a72" stroke-width="3" stroke-linecap="round"/>
+    <path d="M193 266 Q200 271 207 266" fill="none" stroke="#ffffff" stroke-width="1.5" opacity=".25"/>
+    <!-- 嘴 -->
+    <path d="M185 292 Q200 302 215 292" fill="none" stroke="#9c4f4a" stroke-width="4" stroke-linecap="round"/>
+    <path d="M190 293 Q200 298 210 293" fill="none" stroke="#e59a8f" stroke-width="1.5" opacity=".7"/>
+    <!-- 下巴 / 轮廓光 -->
+    <path d="M180 326 Q200 336 220 326" fill="none" stroke="#c9856c" stroke-width="2" opacity=".35"/>
+    <path d="M146 214 Q148 284 174 324" fill="none" stroke="#8fe9ff" stroke-width="3" opacity=".5"/>
+    <path d="M254 212 Q252 280 228 322" fill="none" stroke="#ffc08a" stroke-width="3" opacity=".4"/>
+    <!-- 衣服轮廓光 -->
+    <path d="M60 496 C68 424 104 382 154 360" fill="none" stroke="#8fe9ff" stroke-width="3" opacity=".35"/>
+    <path d="M340 496 C332 424 296 382 246 360" fill="none" stroke="#ffc08a" stroke-width="3" opacity=".28"/>
+  </g>
+</svg>

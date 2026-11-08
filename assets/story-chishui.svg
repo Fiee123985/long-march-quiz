@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a1120"/>
+      <stop offset=".5" stop-color="#26313d"/>
+      <stop offset=".78" stop-color="#6a4a45"/>
+      <stop offset="1" stop-color="#b5775a"/>
+    </linearGradient>
+    <linearGradient id="river" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d59a70"/>
+      <stop offset=".35" stop-color="#9a5a4a"/>
+      <stop offset=".7" stop-color="#5d3636"/>
+      <stop offset="1" stop-color="#2a1f24"/>
+    </linearGradient>
+    <linearGradient id="hillFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#39434c"/>
+      <stop offset="1" stop-color="#1c262e"/>
+    </linearGradient>
+    <linearGradient id="hillMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#27332f"/>
+      <stop offset="1" stop-color="#111a18"/>
+    </linearGradient>
+    <linearGradient id="flag" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e63946"/>
+      <stop offset="1" stop-color="#971a29"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ffd4a0" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#ffd4a0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig" cx=".5" cy=".46" r=".72">
+      <stop offset=".5" stop-color="#03050b" stop-opacity="0"/>
+      <stop offset="1" stop-color="#03050b" stop-opacity=".55"/>
+    </radialGradient>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="clip"><rect width="800" height="450"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#clip)">
+    <rect width="800" height="450" fill="url(#sky)"/>
+    <circle cx="590" cy="170" r="170" fill="url(#sunGlow)"/>
+    <circle cx="590" cy="170" r="34" fill="#ffd9ae" opacity=".65"/>
+
+    <!-- 云 -->
+    <g filter="url(#blur)" opacity=".45">
+      <path d="M-40 130 C120 105 240 135 380 118 C520 100 640 126 800 110 L800 160 C640 176 520 150 380 168 C240 186 120 156 -40 180 Z" fill="#6b5a58"/>
+      <path d="M-40 210 C140 188 300 210 460 196 C620 182 720 200 800 192 L800 226 C700 236 620 218 460 232 C300 246 140 224 -40 246 Z" fill="#8a6a5e" opacity=".5"/>
+    </g>
+
+    <!-- 山 -->
+    <path d="M-40 280 L70 230 L150 262 L250 200 L350 270 L450 216 L560 282 L660 222 L760 276 L840 240 L840 360 L-40 360 Z" fill="url(#hillFar)" opacity=".85"/>
+    <path d="M-40 320 C100 286 240 306 380 300 C520 294 650 310 800 292 L800 390 L-40 390 Z" fill="url(#hillMid)"/>
+
+    <!-- 赤水河 -->
+    <path d="M390 248 C350 282 440 306 380 342 C330 372 420 398 360 450 L540 450 C500 402 580 378 520 344 C470 316 540 286 490 250 Z" fill="url(#river)"/>
+    <path d="M390 248 C350 282 440 306 380 342 C330 372 420 398 360 450" fill="none" stroke="#e3ad86" stroke-width="2" opacity=".35"/>
+    <path d="M490 250 C540 286 470 316 520 344 C580 378 500 402 540 450" fill="none" stroke="#f0c09a" stroke-width="2" opacity=".28"/>
+    <g fill="none" stroke="#ffd4a0" stroke-linecap="round" opacity=".4">
+      <path d="M410 292 C430 286 450 294 470 288" stroke-width="3"/>
+      <path d="M430 326 C450 320 470 328 490 322" stroke-width="2.5"/>
+      <path d="M400 376 C425 368 450 378 475 370" stroke-width="2"/>
+    </g>
+
+    <!-- 岸与礁石 -->
+    <path d="M-40 340 C80 316 180 334 280 330 C330 328 360 336 390 344 L360 450 L-40 450 Z" fill="#0d1715"/>
+    <path d="M800 332 C700 312 620 330 540 326 C520 325 500 334 490 342 L540 450 L800 450 Z" fill="#0d1715"/>
+    <g fill="#1a2421">
+      <path d="M120 352 L156 342 L190 356 L174 376 L130 372 Z"/>
+      <path d="M610 350 L648 338 L682 354 L664 374 L620 370 Z"/>
+    </g>
+
+    <!-- 小舟 -->
+    <g fill="#241a16" stroke="#6b4a34" stroke-width="1.5">
+      <path d="M360 332 Q382 342 404 332 L398 344 Q382 350 366 344 Z"/>
+      <path d="M446 370 Q466 380 486 370 L480 382 Q466 388 452 382 Z"/>
+    </g>
+    <g fill="#b9a486" opacity=".8">
+      <path d="M380 304 L384 330 M382 306 L394 314 L386 318 Z"/>
+      <path d="M464 344 L468 368 M466 346 L476 352 L470 356 Z"/>
+    </g>
+
+    <!-- 岸边红旗 -->
+    <g>
+      <path d="M170 342 L172 262" stroke="#4e3624" stroke-width="4"/>
+      <path d="M171 266 C190 256 206 268 224 260 C218 276 226 288 220 300 C202 306 186 294 171 300 Z" fill="url(#flag)" filter="url(#glow)"/>
+      <polygon points="190,276 193,283 200,283 195,288 197,295 190,291 183,295 185,288 180,283 187,283" fill="#ffd166" opacity=".85"/>
+    </g>
+
+    <!-- 雾 -->
+    <g filter="url(#blur)" opacity=".3">
+      <ellipse cx="360" cy="300" rx="260" ry="30" fill="#d7c2b2"/>
+      <ellipse cx="560" cy="380" rx="220" ry="26" fill="#c9b3a2"/>
+    </g>
+
+    <rect width="800" height="450" fill="url(#vig)"/>
+  </g>
+</svg>

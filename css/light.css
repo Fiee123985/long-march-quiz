@@ -1,0 +1,537 @@
+/* ═══════════════════════════════════════════════════════════
+   题库 / 我的成就 · 与首页一致的夕阳浅红纪念版
+   ═══════════════════════════════════════════════════════════ */
+
+body[data-page="bank"],
+body[data-page="records"] {
+  --home-bg: #fdeee9;
+  --home-card: #fff8f4;
+  --home-border: #efd1c7;
+  --home-ink: #3a2624;
+  --home-muted: #8a6a63;
+  --home-red: #c65f50;
+  --home-red-dark: #9e4438;
+  --home-gold: #d99a5b;
+  --home-navy: #3a1e2a;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--home-bg);
+  background-image:
+    radial-gradient(circle at 82% -10%, rgba(240, 154, 112, 0.2), transparent 42%),
+    radial-gradient(circle at 8% 105%, rgba(232, 120, 110, 0.11), transparent 45%),
+    radial-gradient(rgba(190, 100, 90, 0.055) 1px, transparent 1px);
+  background-size: auto, auto, 19px 19px;
+  color: var(--home-ink);
+  font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+body[data-page="bank"]::before,
+body[data-page="records"]::before {
+  display: none;
+}
+
+body[data-page="bank"] ::selection,
+body[data-page="records"] ::selection {
+  background: rgba(198, 95, 80, 0.16);
+  color: var(--home-ink);
+}
+
+.light-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.light-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: min(1000px, 100%);
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+/* ── 页头 ─────────────────────────────────────────────── */
+.light-head {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 38px 0 20px;
+  border-bottom: 1px solid var(--home-border);
+  margin-bottom: 18px;
+}
+
+.light-seal {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 54px;
+  border: 2px solid #e8a76f;
+  border-radius: 2px;
+  background: var(--home-red);
+  color: #fff3e8;
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: 24px;
+  font-weight: 800;
+  box-shadow: 2px 3px 0 rgba(158, 68, 56, 0.14);
+  transform: rotate(-2deg);
+}
+
+.light-head__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.light-kicker {
+  display: block;
+  color: var(--home-red);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.light-head h1 {
+  margin-top: 4px;
+  color: var(--home-ink);
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+}
+
+.light-head p {
+  margin-top: 5px;
+  color: var(--home-muted);
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.light-count {
+  flex: 0 0 auto;
+  padding: 7px 12px;
+  border: 1px solid rgba(198, 95, 80, 0.22);
+  border-radius: 3px;
+  background: #fff4ef;
+  color: var(--home-red);
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: 14px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ── 题库 ─────────────────────────────────────────────── */
+.light-main .bank-tools {
+  gap: 11px;
+  margin-bottom: 16px;
+}
+
+body[data-page="bank"] #bank-search {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--home-border);
+  border-radius: 4px;
+  background: var(--home-card);
+  color: var(--home-ink);
+  font-size: 11.5px;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+body[data-page="bank"] #bank-search::placeholder {
+  color: #b08a80;
+}
+
+body[data-page="bank"] #bank-search:focus {
+  border-color: var(--home-red);
+  background: #fff8f4;
+  box-shadow: 0 0 0 3px rgba(198, 95, 80, 0.07);
+  outline: none;
+}
+
+body[data-page="bank"] .chips {
+  gap: 6px;
+}
+
+body[data-page="bank"] .chips button {
+  padding: 6px 10px;
+  border: 1px solid var(--home-border);
+  border-radius: 3px;
+  background: var(--home-card);
+  color: #6b5e4b;
+  font-size: 9.5px;
+  font-weight: 600;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+body[data-page="bank"] .chips button:hover {
+  border-color: var(--home-gold);
+  color: var(--home-red);
+}
+
+body[data-page="bank"] .chips button.is-active {
+  border-color: var(--home-red);
+  background: var(--home-red);
+  color: #fff4ec;
+}
+
+body[data-page="bank"] .chips button em {
+  margin-left: 4px;
+  color: #b08a80;
+  font-size: 7.5px;
+  font-style: normal;
+}
+
+body[data-page="bank"] .chips button.is-active em {
+  color: #f8d3b8;
+}
+
+body[data-page="bank"] .bank-card {
+  margin-bottom: 9px;
+  padding: 15px 17px;
+  border: 1px solid var(--home-border);
+  border-radius: 5px;
+  background: var(--home-card);
+  box-shadow: 0 10px 22px -24px rgba(120, 60, 50, 0.4);
+}
+
+body[data-page="bank"] .bank-top {
+  margin-bottom: 9px;
+}
+
+body[data-page="bank"] .bank-card .chip.bank-level {
+  border: 1px solid rgba(198, 95, 80, 0.22);
+  border-radius: 3px;
+  background: #fbe3da;
+  color: var(--home-red);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+body[data-page="bank"] .bank-idx {
+  color: #bfa196;
+  font-size: 7.5px;
+  letter-spacing: 0.1em;
+}
+
+body[data-page="bank"] .bank-card h3 {
+  color: var(--home-ink);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+body[data-page="bank"] .bank-qtype {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 5px;
+  border: 1px solid rgba(198, 95, 80, 0.18);
+  border-radius: 3px;
+  background: #fbe3da;
+  color: var(--home-red);
+  font-size: 7.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  vertical-align: 1px;
+}
+
+body[data-page="bank"] .bank-opt {
+  border: 1px solid #f3ddd5;
+  border-radius: 4px;
+  background: #fff5f0;
+  color: #6f4c46;
+  font-size: 10.5px;
+}
+
+body[data-page="bank"] .bank-opt > span {
+  color: #b08a80;
+}
+
+body[data-page="bank"] .bank-opt.is-answer {
+  border-color: #b9dcc9;
+  background: #eef7f1;
+  color: #245e45;
+}
+
+body[data-page="bank"] .bank-opt.is-answer > span {
+  color: #2f7a5a;
+}
+
+body[data-page="bank"] .bank-opt.is-answer em {
+  color: #2f7a5a;
+}
+
+body[data-page="bank"] .bank-tf {
+  border: 1px solid #f4d8ce;
+  border-radius: 4px;
+  background: #fdf0ea;
+  color: #6b5e4b;
+  font-size: 10px;
+}
+
+body[data-page="bank"] .tf-badge {
+  border-color: rgba(217, 154, 91, 0.3);
+  border-radius: 3px;
+  color: var(--home-gold);
+}
+
+body[data-page="bank"] .bank-tf em {
+  color: #2f7a5a;
+}
+
+body[data-page="bank"] .bank-tf em.is-false {
+  color: var(--home-red);
+}
+
+body[data-page="bank"] .bank-empty {
+  padding: 44px 0;
+  color: var(--home-muted);
+  font-size: 11px;
+}
+
+/* ── 我的成就 ─────────────────────────────────────────── */
+body[data-page="records"] .record-summary {
+  gap: 9px;
+  margin-bottom: 16px;
+}
+
+body[data-page="records"] .summary-card {
+  padding: 14px 15px;
+  border: 1px solid var(--home-border);
+  border-top: 2px solid var(--home-red);
+  border-radius: 4px;
+  background: var(--home-card);
+  box-shadow: 0 9px 20px -24px rgba(120, 60, 50, 0.4);
+}
+
+body[data-page="records"] .summary-card span {
+  margin-bottom: 7px;
+  color: #a87f74;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+body[data-page="records"] .summary-card strong {
+  color: var(--home-red);
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+body[data-page="records"] .summary-card small {
+  margin-left: 3px;
+  color: #b08a80;
+  font-size: 8px;
+}
+
+body[data-page="records"] .record-list {
+  gap: 8px;
+}
+
+body[data-page="records"] .record-item {
+  padding: 12px 14px;
+  border: 1px solid var(--home-border);
+  border-radius: 4px;
+  background: var(--home-card);
+  box-shadow: 0 8px 18px -24px rgba(120, 60, 50, 0.35);
+}
+
+body[data-page="records"] .record-item.is-locked {
+  opacity: 0.58;
+}
+
+body[data-page="records"] .record-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+body[data-page="records"] .record-badge.is-win {
+  border: 1px solid #ecc7b6;
+  background: #fbe4d8;
+  color: #9e5f3c;
+}
+
+body[data-page="records"] .record-badge.is-lose {
+  border: 1px solid #f0cfc9;
+  background: #fde3e0;
+  color: var(--home-red);
+}
+
+body[data-page="records"] .record-badge.is-draw {
+  border: 1px solid #f4d8ce;
+  background: #fdf0ea;
+  color: var(--home-gold);
+}
+
+body[data-page="records"] .record-badge.is-none {
+  border: 1px solid #efd1c7;
+  background: #fbeae4;
+  color: #6b5e4b;
+}
+
+body[data-page="records"] .record-badge.is-locked {
+  border: 1px solid #f1d8cf;
+  background: #f8e6df;
+  color: #b08a80;
+}
+
+body[data-page="records"] .record-title b {
+  color: var(--home-ink);
+  font-size: 12px;
+}
+
+body[data-page="records"] .record-title span {
+  color: #b08a80;
+  font-size: 8px;
+}
+
+body[data-page="records"] .record-main p {
+  color: var(--home-muted);
+  font-size: 9px;
+}
+
+body[data-page="records"] .record-stars {
+  color: var(--home-gold);
+}
+
+body[data-page="records"] .btn-clear {
+  margin-top: 20px;
+  padding: 8px 15px;
+  border: 1px solid #edc9bc;
+  border-radius: 3px;
+  background: var(--home-card);
+  color: var(--home-red);
+  font-size: 9px;
+  font-weight: 700;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+body[data-page="records"] .btn-clear:hover {
+  border-color: #d99a8a;
+  background: #fde3e0;
+}
+
+/* ── 页脚 ─────────────────────────────────────────────── */
+.light-foot {
+  margin-top: auto;
+  padding: 24px 0 22px;
+  border-top: 1px solid var(--home-border);
+  color: #b08a80;
+  font-size: 8px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.light-foot p {
+  color: #72504a;
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.light-foot small {
+  display: block;
+  margin-top: 3px;
+  font-size: 8px;
+}
+
+/* ── 响应式 ───────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .light-main {
+    padding: 0 15px;
+  }
+
+  .light-head {
+    gap: 11px;
+    padding: 27px 0 15px;
+    margin-bottom: 14px;
+  }
+
+  .light-seal {
+    width: 40px;
+    height: 46px;
+    font-size: 20px;
+  }
+
+  .light-head h1 {
+    font-size: 28px;
+  }
+
+  .light-head p {
+    font-size: 9px;
+  }
+
+  .light-count {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  body[data-page="bank"] .bank-card {
+    padding: 12px 13px;
+  }
+
+  body[data-page="bank"] .bank-card h3 {
+    font-size: 12.5px;
+  }
+
+  body[data-page="bank"] .bank-opt {
+    font-size: 10px;
+  }
+
+  body[data-page="records"] .record-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-page="records"] .summary-card strong {
+    font-size: 21px;
+  }
+
+  body[data-page="records"] .record-item {
+    padding: 10px 11px;
+  }
+
+  body[data-page="records"] .record-title b {
+    font-size: 11px;
+  }
+
+  .light-foot {
+    padding: 18px 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .light-head h1 {
+    font-size: 25px;
+  }
+
+  .light-head p {
+    font-size: 8.5px;
+  }
+
+  body[data-page="bank"] .chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 3px;
+    scrollbar-width: none;
+  }
+
+  body[data-page="bank"] .chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  body[data-page="bank"] .chips button {
+    flex: 0 0 auto;
+    padding: 5px 8px;
+    font-size: 8.5px;
+  }
+
+  body[data-page="records"] .record-stars {
+    display: none;
+  }
+}

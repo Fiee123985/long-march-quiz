@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#04060f"/>
+      <stop offset=".42" stop-color="#10152b"/>
+      <stop offset=".7" stop-color="#2a2233"/>
+      <stop offset="1" stop-color="#5a2f2c"/>
+    </linearGradient>
+    <linearGradient id="river" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#183744"/>
+      <stop offset=".45" stop-color="#0d2631"/>
+      <stop offset="1" stop-color="#050d14"/>
+    </linearGradient>
+    <radialGradient id="fireGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ffd28a" stop-opacity=".9"/>
+      <stop offset=".35" stop-color="#ff7a3c" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#ff4d2e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moonGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#e8eefc" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#e8eefc" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="flag" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e63946"/>
+      <stop offset="1" stop-color="#8f1625"/>
+    </linearGradient>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="blur2" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="rain" width="170" height="170" patternUnits="userSpaceOnUse" patternTransform="rotate(14)">
+      <line x1="18" y1="0" x2="18" y2="24" stroke="#d8e6f2" stroke-width="1.1" opacity=".12"/>
+      <line x1="98" y1="58" x2="98" y2="82" stroke="#d8e6f2" stroke-width="1" opacity=".09"/>
+      <line x1="146" y1="122" x2="146" y2="146" stroke="#d8e6f2" stroke-width="1.1" opacity=".1"/>
+    </pattern>
+    <pattern id="planks" width="34" height="18" patternUnits="userSpaceOnUse">
+      <line x1="2" y1="0" x2="2" y2="18" stroke="#2a1a12" stroke-width="2" opacity=".8"/>
+    </pattern>
+    <radialGradient id="vig" cx=".5" cy=".46" r=".74">
+      <stop offset=".5" stop-color="#03050b" stop-opacity="0"/>
+      <stop offset="1" stop-color="#03050b" stop-opacity=".55"/>
+    </radialGradient>
+    <clipPath id="clip"><rect width="1600" height="900"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#clip)">
+    <rect width="1600" height="900" fill="url(#sky)"/>
+
+    <!-- 月与烟 -->
+    <circle cx="1230" cy="160" r="180" fill="url(#moonGlow)"/>
+    <circle cx="1230" cy="160" r="48" fill="#dfe6f2" opacity=".55"/>
+    <g filter="url(#blur)" opacity=".6">
+      <path d="M-80 220 C160 190 320 240 500 214 C700 186 880 232 1080 208 C1260 186 1440 222 1680 200 L1680 300 C1440 322 1260 286 1080 308 C880 332 700 286 500 312 C320 336 160 296 -80 326 Z" fill="#262a3c"/>
+      <path d="M-80 380 C140 350 300 386 480 366 C680 344 860 380 1060 362 C1260 344 1440 372 1680 354 L1680 420 C1440 438 1260 410 1060 428 C860 446 680 410 480 430 C300 450 140 414 -80 444 Z" fill="#3a2c32" opacity=".7"/>
+    </g>
+
+    <!-- 探照灯 -->
+    <g opacity=".1" fill="#dce8ff">
+      <polygon points="1600,120 760,900 1040,900"/>
+      <polygon points="1600,120 1180,900 1380,900"/>
+    </g>
+
+    <!-- 远岸山影 -->
+    <path d="M-40 540 C120 490 240 510 380 524 C520 538 620 500 760 516 C900 532 1000 498 1140 514 C1280 530 1400 496 1540 516 L1660 530 L1660 620 L-40 620 Z" fill="#0b111c"/>
+    <path d="M-40 570 C160 540 320 560 480 566 C660 572 820 548 1000 560 C1180 572 1340 548 1520 560 L1660 566 L1660 620 L-40 620 Z" fill="#111a24" opacity=".8"/>
+
+    <!-- 对岸火光 -->
+    <g>
+      <circle cx="1050" cy="555" r="220" fill="url(#fireGlow)"/>
+      <circle cx="1180" cy="570" r="150" fill="url(#fireGlow)" opacity=".8"/>
+      <g filter="url(#glow)">
+        <path d="M1010 570 C990 530 1018 510 1024 482 C1048 510 1046 534 1060 560 Z" fill="#ff9a4a"/>
+        <path d="M1030 566 C1024 538 1042 522 1048 504 C1062 526 1058 546 1066 566 Z" fill="#ffe0a0"/>
+        <path d="M1100 572 C1080 536 1112 514 1116 488 C1142 518 1138 544 1152 568 Z" fill="#ff8a3c"/>
+        <path d="M1124 570 C1116 544 1134 528 1140 510 C1154 532 1148 552 1158 570 Z" fill="#ffd68e"/>
+        <path d="M1190 576 C1176 548 1200 528 1204 508 C1224 532 1220 552 1230 574 Z" fill="#ff7a3c" opacity=".9"/>
+      </g>
+      <!-- 燃烧的工事 -->
+      <g fill="#1a0f0c">
+        <path d="M960 580 L1010 560 L1040 578 L1000 594 Z"/>
+        <path d="M1080 584 L1130 566 L1160 582 L1110 598 Z"/>
+        <path d="M1180 588 L1230 570 L1260 586 L1210 602 Z"/>
+      </g>
+      <g fill="#ffb46b" opacity=".7">
+        <circle cx="1004" cy="580" r="4"/>
+        <circle cx="1128" cy="584" r="3"/>
+        <circle cx="1218" cy="588" r="3.5"/>
+      </g>
+      <!-- 对岸守军 -->
+      <g fill="#090d12">
+        <g transform="translate(980 540) scale(.6)">
+          <circle cx="0" cy="-40" r="8"/>
+          <path d="M-8 -30 Q0 -37 8 -30 L10 0 L4 0 L2 -14 L0 0 L-4 0 L-7 -14 L-12 0 Z"/>
+          <path d="M-4 0 L-7 28 M4 0 L8 28" stroke="#090d12" stroke-width="5" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(1050 546) scale(.55)">
+          <circle cx="0" cy="-40" r="8"/>
+          <path d="M-8 -30 Q0 -37 8 -30 L10 0 L4 0 L2 -14 L0 0 L-4 0 L-7 -14 L-12 0 Z"/>
+          <path d="M-4 0 L-7 28 M4 0 L8 28" stroke="#090d12" stroke-width="5" stroke-linecap="round"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- 江面 -->
+    <path d="M-40 600 C160 580 340 594 520 604 C700 614 880 590 1060 600 C1240 610 1420 586 1660 600 L1660 900 L-40 900 Z" fill="url(#river)"/>
+    <path d="M-40 630 C180 612 360 628 540 638 C720 648 900 626 1080 636 C1260 646 1440 624 1660 636 L1660 900 L-40 900 Z" fill="#071018" opacity=".5"/>
+    <!-- 火光倒影 -->
+    <g fill="none" stroke="#ff9a5a" stroke-linecap="round" opacity=".45">
+      <path d="M1010 640 C1020 670 1000 700 1014 736" stroke-width="4"/>
+      <path d="M1050 632 C1060 668 1044 704 1058 744" stroke-width="3"/>
+      <path d="M1110 636 C1120 672 1104 710 1118 752" stroke-width="4"/>
+      <path d="M1170 640 C1180 676 1164 714 1178 756" stroke-width="3"/>
+      <path d="M1220 632 C1230 668 1214 706 1228 748" stroke-width="2.5"/>
+    </g>
+    <g fill="none" stroke="#7fa6b4" stroke-linecap="round" opacity=".3">
+      <path d="M120 700 C240 690 360 700 480 694" stroke-width="3"/>
+      <path d="M540 760 C680 748 800 760 940 752" stroke-width="3"/>
+      <path d="M1080 810 C1220 798 1360 810 1500 802" stroke-width="2.5"/>
+      <path d="M300 840 C440 828 580 840 720 832" stroke-width="2"/>
+    </g>
+
+    <!-- 浮桥 -->
+    <g>
+      <!-- 桥板 -->
+      <path d="M120 650 Q800 700 1480 642" fill="none" stroke="#4b3424" stroke-width="20"/>
+      <path d="M120 650 Q800 700 1480 642" fill="none" stroke="url(#planks)" stroke-width="20"/>
+      <path d="M120 642 Q800 692 1480 634" fill="none" stroke="#a0784f" stroke-width="2" opacity=".5"/>
+      <!-- 支撑船 -->
+      <g fill="#2a1c14" stroke="#59402c" stroke-width="2">
+        <path d="M250 668 Q300 684 350 668 L342 690 Q300 702 258 690 Z"/>
+        <path d="M470 682 Q520 698 570 682 L562 704 Q520 716 478 704 Z"/>
+        <path d="M700 690 Q750 706 800 690 L792 712 Q750 724 708 712 Z"/>
+        <path d="M930 693 Q980 709 1030 693 L1022 715 Q980 727 938 715 Z"/>
+        <path d="M1160 682 Q1210 698 1260 682 L1252 704 Q1210 716 1168 704 Z"/>
+        <path d="M1360 664 Q1410 680 1460 664 L1452 686 Q1410 698 1368 686 Z"/>
+      </g>
+      <!-- 绳索 -->
+      <path d="M120 640 Q800 690 1480 632" fill="none" stroke="#8f7a5e" stroke-width="2" opacity=".65"/>
+      <path d="M120 656 Q800 706 1480 648" fill="none" stroke="#6d5a44" stroke-width="2" opacity=".55"/>
+    </g>
+
+    <!-- 桥上队伍 -->
+    <g fill="#080b12" opacity=".95">
+      <g transform="translate(560 642) scale(.64)">
+        <circle cx="0" cy="-44" r="8"/>
+        <path d="M-8 -34 Q0 -41 8 -34 L11 2 L5 2 L2 -16 L0 2 L-5 2 L-8 -16 L-12 2 L-18 2 Z"/>
+        <path d="M-7 -29 L-18 -7 M7 -29 L18 -9" stroke="#080b12" stroke-width="5" stroke-linecap="round"/>
+        <path d="M-4 2 L-8 30 M4 2 L9 30" stroke="#080b12" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(620 650) scale(.62)">
+        <circle cx="0" cy="-44" r="8"/>
+        <path d="M-8 -34 Q0 -41 8 -34 L11 2 L5 2 L2 -16 L0 2 L-5 2 L-8 -16 L-12 2 L-18 2 Z"/>
+        <path d="M-7 -29 L-18 -7 M7 -29 L18 -9" stroke="#080b12" stroke-width="5" stroke-linecap="round"/>
+        <path d="M-4 2 L-8 30 M4 2 L9 30" stroke="#080b12" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(680 658) scale(.6)">
+        <circle cx="0" cy="-44" r="8"/>
+        <path d="M-8 -34 Q0 -41 8 -34 L11 2 L5 2 L2 -16 L0 2 L-5 2 L-8 -16 L-12 2 L-18 2 Z"/>
+        <path d="M-7 -29 L-18 -7 M7 -29 L18 -9" stroke="#080b12" stroke-width="5" stroke-linecap="round"/>
+        <path d="M-4 2 L-8 30 M4 2 L9 30" stroke="#080b12" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(740 664) scale(.58)">
+        <circle cx="0" cy="-44" r="8"/>
+        <path d="M-8 -34 Q0 -41 8 -34 L11 2 L5 2 L2 -16 L0 2 L-5 2 L-8 -16 L-12 2 L-18 2 Z"/>
+        <path d="M-7 -29 L-18 -7 M7 -29 L18 -9" stroke="#080b12" stroke-width="5" stroke-linecap="round"/>
+        <path d="M-4 2 L-8 30 M4 2 L9 30" stroke="#080b12" stroke-width="5" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- 近岸芦苇与红旗 -->
+    <g stroke="#0a1414" stroke-linecap="round" opacity=".9">
+      <path d="M60 900 Q72 820 62 770 M82 900 Q92 840 88 790 M106 900 Q118 850 114 810" stroke-width="3"/>
+      <path d="M1480 900 Q1492 836 1484 796 M1504 900 Q1512 850 1510 816 M1528 900 Q1536 864 1534 834" stroke-width="3"/>
+    </g>
+    <g>
+      <path d="M190 670 L196 520" stroke="#4a3322" stroke-width="5"/>
+      <path d="M194 526 C232 512 262 534 300 520 C288 546 304 566 292 588 C256 600 226 578 194 590 Z" fill="url(#flag)" filter="url(#glow)"/>
+      <path d="M194 526 C232 512 262 534 300 520" fill="none" stroke="#ff9a9a" stroke-width="2" opacity=".45"/>
+      <polygon points="222,540 226,548 234,548 228,553 230,561 222,556 214,561 216,553 210,548 218,548" fill="#ffd166" opacity=".9"/>
+    </g>
+
+    <!-- 火星与烟 -->
+    <g fill="#ffb46b">
+      <circle cx="960" cy="480" r="2.4" opacity=".8"/>
+      <circle cx="1040" cy="450" r="1.8" opacity=".6"/>
+      <circle cx="1130" cy="470" r="2.2" opacity=".7"/>
+      <circle cx="1210" cy="440" r="1.6" opacity=".55"/>
+      <circle cx="1280" cy="490" r="2" opacity=".6"/>
+    </g>
+    <g filter="url(#blur2)" opacity=".25">
+      <ellipse cx="1080" cy="470" rx="260" ry="40" fill="#ffb46b"/>
+    </g>
+
+    <rect width="1600" height="900" fill="url(#rain)"/>
+    <rect width="1600" height="900" fill="url(#vig)"/>
+  </g>
+</svg>

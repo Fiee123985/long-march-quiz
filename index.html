@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#3a1e2a">
+  <meta name="description" content="重走长征路 · 长征胜利 90 周年知识闯关：五关长征进度、50 血答题对战、长征故事与战绩。">
+  <title>重走长征路 · 长征胜利 90 周年知识闯关</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/campaign.css">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body data-page="home">
+  <div class="home-page" id="screen-home">
+    <header class="home-nav">
+      <div class="home-nav__inner">
+        <a class="home-brand" href="index.html">
+          <span>★</span>
+          <b>长征胜利90周年</b>
+          <em>红色知识闯关</em>
+        </a>
+
+        <nav class="home-nav__links site-links" aria-label="站点导航">
+          <a href="index.html" data-page="home">首页</a>
+          <a href="game.html?level=1" data-page="game" data-start-link>闯关答题</a>
+          <a href="story.html" data-page="story">长征故事</a>
+          <a href="bank.html" data-page="bank">题库</a>
+          <a href="records.html" data-page="records">我的成就</a>
+        </nav>
+
+        <div class="home-nav__right">
+          <a class="nav-progress" href="records.html">
+            <span>长征进度</span><b id="nav-progress">0%</b>
+          </a>
+          <button class="sound-toggle" id="sound-toggle" type="button" aria-label="关闭音效">🔊</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="home-watermark" aria-hidden="true">二万五千里</div>
+
+    <main class="home-main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="home-sun" id="home-sun" aria-hidden="true"></div>
+          <div class="home-mist" aria-hidden="true"></div>
+          <div class="home-sun-clouds" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="hero-seal" aria-hidden="true">
+            <b>90</b><span>周年</span>
+          </div>
+          <p class="hero-kicker">1936 — 2026 · 长征胜利 90 周年</p>
+          <h1 class="hero-title" id="hero-title">重走<em>长征</em>路</h1>
+          <p class="hero-sub">五千里一关，五题一程。答对伤敌，答错自损，最后血量高者过关。</p>
+          <div class="hero-actions">
+            <a class="btn-home" href="game.html?level=1" data-start-link>
+              <span id="start-label">开始长征 · 第 1 关</span><b aria-hidden="true">→</b>
+            </a>
+            <a class="hero-link" href="story.html">读长征故事 <span aria-hidden="true">→</span></a>
+          </div>
+          <p class="hero-note">从湘江到陕北 · 用答题重走二万五千里</p>
+        </div>
+
+        <aside class="progress-card" aria-label="长征进度">
+          <div class="progress-card__head">
+            <span class="eyebrow">长征进度</span>
+            <b id="progress-percent">0%</b>
+          </div>
+
+          <div class="progress-dial" id="progress-dial" style="--progress: 0">
+            <div class="progress-dial__inner">
+              <strong id="progress-distance">0 / 25,000 里</strong>
+              <span id="progress-current">当前 · 第 1 关</span>
+            </div>
+          </div>
+
+          <div class="milestones" id="milestones"></div>
+
+          <a class="progress-more" href="records.html">查看详细战绩 →</a>
+        </aside>
+      </section>
+
+      <section class="story-section" aria-labelledby="story-heading">
+        <div class="story-section__head">
+          <span class="eyebrow">READ</span>
+          <h2 id="story-heading">长征故事</h2>
+          <p>8 个历史节点，与闯关分开阅读。</p>
+        </div>
+        <div class="story-links">
+          <a href="story.html?id=xiangjiang">血战湘江</a>
+          <a href="story.html?id=zunyi">遵义会议</a>
+          <a href="story.html?id=luding">飞夺泸定桥</a>
+          <a href="story.html?id=jiajinshan">翻越夹金山</a>
+          <a href="story.html?id=huining">会师陕北</a>
+        </div>
+        <a class="story-section__all" href="story.html">全部 8 篇 →</a>
+      </section>
+
+      <section class="home-quote" aria-label="长征诗句">
+        <span class="home-quote__mark" aria-hidden="true">“</span>
+        <p>雄关漫道真如铁，而今迈步从头越。</p>
+        <small>毛泽东 ·《忆秦娥·娄山关》</small>
+      </section>
+
+      <footer class="home-footer">
+        <div class="footer-stats" aria-label="长征数据">
+          <span>长征里程 <b id="stat-distance">0 里</b></span>
+          <span>已通关 <b id="stat-cleared">0 / 5</b></span>
+          <span>最佳答对 <b id="stat-best">0 / 5</b></span>
+          <span>累计尝试 <b id="stat-attempts">0 次</b></span>
+        </div>
+        <p>长征精神 永放光芒 —— 纪念中国工农红军长征胜利 90 周年</p>
+        <small>红色知识教育 · 答题进度与最佳纪录自动保存在本机浏览器</small>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/questions.js"></script>
+  <script src="js/stories.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

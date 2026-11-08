@@ -1,0 +1,640 @@
+/* ═══════════════════════════════════════════════════════════
+   长征故事 · 浅红地图页
+   ═══════════════════════════════════════════════════════════ */
+
+body[data-page="story"] {
+  --story-bg: #fdece6;
+  --story-card: #fff8f4;
+  --story-border: #efd1c7;
+  --story-ink: #3a2624;
+  --story-muted: #8a6a63;
+  --story-red: #c65f50;
+  --story-red-dark: #9e4438;
+  --story-gold: #d99a5b;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--story-bg);
+  background-image:
+    radial-gradient(circle at 86% -4%, rgba(255, 193, 141, 0.42), transparent 38%),
+    radial-gradient(circle at 10% 104%, rgba(232, 120, 110, 0.14), transparent 42%),
+    linear-gradient(180deg, #f7d3c9 0%, #fbe4dc 38%, #fff2eb 72%, #fff9f5 100%);
+  background-attachment: fixed;
+  color: var(--story-ink);
+  font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+body[data-page="story"]::before {
+  display: none;
+}
+
+.story-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.story-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: min(1320px, 100%);
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+/* ── 页头 ─────────────────────────────────────────────── */
+.story-head {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 30px 0 18px;
+  border-bottom: 1px solid var(--story-border);
+  margin-bottom: 16px;
+}
+
+.story-seal {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 50px;
+  height: 56px;
+  border: 2px solid #e8a76f;
+  border-radius: 2px;
+  background: var(--story-red);
+  color: #fff3e8;
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: 25px;
+  font-weight: 800;
+  box-shadow: 2px 3px 0 rgba(158, 68, 56, 0.14);
+  transform: rotate(-2deg);
+}
+
+.story-head__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.story-kicker {
+  display: block;
+  color: var(--story-red);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.story-head h1 {
+  margin-top: 4px;
+  color: var(--story-ink);
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.story-head p {
+  margin-top: 5px;
+  color: var(--story-muted);
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.story-count {
+  flex: 0 0 auto;
+  padding: 7px 12px;
+  border: 1px solid rgba(198, 95, 80, 0.24);
+  border-radius: 3px;
+  background: #fff6f0;
+  color: var(--story-red);
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* ── 地图与故事面板 ───────────────────────────────────── */
+.story-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(320px, 0.9fr);
+  align-items: start;
+  gap: 18px;
+}
+
+.story-map-panel {
+  padding: 10px;
+  border: 1px solid var(--story-border);
+  border-radius: 6px;
+  background: var(--story-card);
+  box-shadow: 0 18px 40px -34px rgba(120, 60, 50, 0.45);
+}
+
+.story-map {
+  position: relative;
+  aspect-ratio: 1000 / 700;
+  overflow: hidden;
+  border: 1px solid #f0d8cd;
+  border-radius: 3px;
+  background: #fdf4ee;
+}
+
+.story-map__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.story-map__points {
+  position: absolute;
+  inset: 0;
+}
+
+.map-point {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--story-ink);
+  font: inherit;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+.map-point__dot {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border: 2px solid var(--story-red);
+  border-radius: 50%;
+  background: #fff8f4;
+  color: var(--story-red-dark);
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 2px 5px rgba(120, 60, 50, 0.18);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.map-point__label {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 4px);
+  z-index: 1;
+  padding: 2px 5px;
+  border: 1px solid rgba(198, 95, 80, 0.16);
+  border-radius: 2px;
+  background: rgba(255, 248, 244, 0.94);
+  color: #64483f;
+  font-size: 8.5px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
+}
+
+.map-point--left .map-point__label {
+  right: calc(100% + 4px);
+  left: auto;
+}
+
+.map-point--top .map-point__label {
+  bottom: calc(100% + 4px);
+  left: 50%;
+  top: auto;
+  transform: translateX(-50%);
+}
+
+.map-point:hover .map-point__label,
+.map-point:focus-visible .map-point__label,
+.map-point.is-active .map-point__label {
+  opacity: 1;
+}
+
+.map-point:hover .map-point__dot {
+  background: var(--story-red);
+  color: #fff8f4;
+  transform: scale(1.12);
+}
+
+.map-point:hover .map-point__label {
+  background: #fff3ec;
+}
+
+.map-point.is-active .map-point__dot {
+  background: var(--story-red);
+  color: #fff8f4;
+  box-shadow: 0 0 0 4px rgba(198, 95, 80, 0.14);
+}
+
+.map-point.is-active .map-point__dot::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 1px solid rgba(198, 95, 80, 0.4);
+  border-radius: 50%;
+  animation: mapPulse 2s ease-out infinite;
+}
+
+.map-point.is-active .map-point__label {
+  border-color: var(--story-red);
+  background: var(--story-red);
+  color: #fff8f4;
+}
+
+@keyframes mapPulse {
+  0% { opacity: 0.65; transform: scale(0.7); }
+  70%, 100% { opacity: 0; transform: scale(1.35); }
+}
+
+.story-map__hint {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  padding: 4px 7px;
+  border: 1px solid rgba(158, 68, 56, 0.16);
+  border-radius: 2px;
+  background: rgba(255, 248, 244, 0.82);
+  color: #8a6a63;
+  font-size: 7.5px;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+.story-map__legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding: 8px 2px 1px;
+  color: #8a6a63;
+  font-size: 8px;
+}
+
+.story-map__legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--story-red);
+  box-shadow: 0 0 0 3px rgba(198, 95, 80, 0.12);
+}
+
+.legend-route {
+  width: 22px;
+  height: 0;
+  border-top: 2px dashed var(--story-red);
+  opacity: 0.75;
+}
+
+.story-places {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f2ddd4;
+}
+
+.story-places button {
+  padding: 4px 8px;
+  border: 1px solid #efd4ca;
+  border-radius: 2px;
+  background: #fff5ef;
+  color: #7b5a50;
+  font-size: 8.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.story-places button:hover {
+  border-color: var(--story-red);
+  color: var(--story-red);
+}
+
+.story-places button.is-active {
+  border-color: var(--story-red);
+  background: var(--story-red);
+  color: #fff8f4;
+}
+
+.story-places button small {
+  margin-right: 3px;
+  font-size: 7px;
+  opacity: 0.7;
+}
+
+/* ── 故事详情面板 ─────────────────────────────────────── */
+.story-panel {
+  position: sticky;
+  top: 78px;
+  max-height: calc(100vh - 98px);
+  overflow-y: auto;
+  border: 1px solid var(--story-border);
+  border-radius: 6px;
+  background: var(--story-card);
+  box-shadow: 0 18px 40px -34px rgba(120, 60, 50, 0.45);
+  scrollbar-width: thin;
+  scrollbar-color: #e3b8ac transparent;
+}
+
+.story-panel::-webkit-scrollbar {
+  width: 5px;
+}
+
+.story-panel::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #e3b8ac;
+}
+
+.story-panel__hero {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+  background: #f7e4dc;
+}
+
+.story-panel__hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-panel__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(58, 31, 34, 0.02) 10%, rgba(58, 31, 34, 0.76) 100%);
+}
+
+.story-panel__hero-text {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  left: 14px;
+  color: #fff8f4;
+}
+
+.story-panel__hero-text span {
+  display: inline-block;
+  margin-bottom: 5px;
+  padding: 2px 6px;
+  border: 1px solid rgba(255, 248, 244, 0.3);
+  border-radius: 2px;
+  background: rgba(158, 68, 56, 0.72);
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.story-panel__hero-text h2 {
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.35;
+  text-shadow: 0 2px 10px rgba(40, 20, 20, 0.4);
+}
+
+.story-panel__body {
+  padding: 14px 16px 15px;
+}
+
+.story-panel__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  color: #a37c72;
+  font-size: 8px;
+}
+
+.story-panel__meta span::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: var(--story-gold);
+  vertical-align: 2px;
+}
+
+.story-panel__lead {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f1ddd5;
+  color: #6c4b43;
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.story-panel__body > p:not(.story-panel__lead) {
+  margin-top: 10px;
+  color: #60443d;
+  font-size: 10.5px;
+  line-height: 1.95;
+  text-align: justify;
+}
+
+.story-panel__pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-top: 14px;
+  padding-top: 11px;
+  border-top: 1px solid #f1ddd5;
+}
+
+.story-panel__pager button {
+  min-width: 0;
+  padding: 7px 8px;
+  border: 1px solid #eed3c9;
+  border-radius: 3px;
+  background: #fff3ec;
+  color: #7b5a50;
+  font-size: 8.5px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.story-panel__pager button:hover {
+  border-color: var(--story-red);
+  background: #fff8f4;
+  color: var(--story-red);
+}
+
+.story-panel__pager small {
+  display: block;
+  margin-bottom: 3px;
+  color: #b08a80;
+  font-size: 7px;
+}
+
+.story-panel__pager b {
+  display: block;
+  overflow: hidden;
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.story-panel__pager button:last-child {
+  text-align: right;
+}
+
+.story-panel__credit {
+  margin-top: 10px;
+  color: #b08a80;
+  font-size: 7.5px;
+  line-height: 1.5;
+  text-align: right;
+}
+
+/* ── 页脚 ─────────────────────────────────────────────── */
+.story-foot {
+  margin-top: auto;
+  padding: 24px 0 22px;
+  border-top: 1px solid var(--story-border);
+  color: #a17f75;
+  font-size: 8px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.story-foot p {
+  color: #72504a;
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.story-foot small {
+  display: block;
+  margin-top: 3px;
+  font-size: 8px;
+}
+
+/* ── 响应式 ───────────────────────────────────────────── */
+@media (max-width: 980px) {
+  .story-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .story-panel {
+    position: static;
+    max-height: none;
+  }
+
+  .story-panel__hero {
+    height: 190px;
+  }
+}
+
+@media (max-width: 760px) {
+  .story-main {
+    padding: 0 15px;
+  }
+
+  .story-head {
+    gap: 11px;
+    padding: 24px 0 14px;
+    margin-bottom: 13px;
+  }
+
+  .story-seal {
+    width: 40px;
+    height: 46px;
+    font-size: 20px;
+  }
+
+  .story-head h1 {
+    font-size: 27px;
+  }
+
+  .story-head p {
+    font-size: 9px;
+  }
+
+  .story-count {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  .story-map-panel {
+    padding: 7px;
+  }
+
+  .map-point__dot {
+    width: 18px;
+    height: 18px;
+    font-size: 8px;
+  }
+
+  .map-point__label {
+    padding: 1px 4px;
+    font-size: 7px;
+  }
+
+  .story-panel__hero {
+    height: 155px;
+  }
+
+  .story-panel__hero-text h2 {
+    font-size: 19px;
+  }
+
+  .story-foot {
+    padding: 18px 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .story-head__text {
+    min-width: 0;
+  }
+
+  .story-head h1 {
+    font-size: 23px;
+  }
+
+  .story-head p {
+    font-size: 8.5px;
+  }
+
+  .map-point__label {
+    font-size: 6.5px;
+  }
+
+  .map-point__dot {
+    width: 16px;
+    height: 16px;
+    font-size: 7px;
+  }
+
+  .story-map__hint {
+    display: none;
+  }
+
+  .story-panel__hero {
+    height: 140px;
+  }
+}

@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 480" width="360" height="480">
+  <defs>
+    <linearGradient id="uniform" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#75846c"/>
+      <stop offset=".5" stop-color="#52604d"/>
+      <stop offset="1" stop-color="#303b30"/>
+    </linearGradient>
+    <linearGradient id="cap" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#7d8c72"/>
+      <stop offset=".55" stop-color="#55644f"/>
+      <stop offset="1" stop-color="#394633"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#ffe4cd"/>
+      <stop offset=".55" stop-color="#f7c6a6"/>
+      <stop offset="1" stop-color="#df9b7d"/>
+    </linearGradient>
+    <linearGradient id="flag" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e63946"/>
+      <stop offset="1" stop-color="#9e1b2a"/>
+    </linearGradient>
+    <radialGradient id="halo" cx=".5" cy=".48" r=".5">
+      <stop offset="0" stop-color="#ffd166" stop-opacity=".24"/>
+      <stop offset=".5" stop-color="#ff7a59" stop-opacity=".10"/>
+      <stop offset="1" stop-color="#ff7a59" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="starGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ff7a7a" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#ff7a7a" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#05070f" flood-opacity=".45"/>
+    </filter>
+    <style>
+      @keyframes raise {
+        0% { transform: rotate(150deg); }
+        68% { transform: rotate(-5deg); }
+        100% { transform: rotate(0deg); }
+      }
+      @keyframes bob {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-4px); }
+      }
+      @keyframes flagWave {
+        0%, 100% { transform: skewY(0deg) scaleX(1); }
+        50% { transform: skewY(-3.5deg) scaleX(.965); }
+      }
+      @keyframes starPulse {
+        0%, 100% { opacity: .72; transform: scale(.94); }
+        50% { opacity: 1; transform: scale(1.06); }
+      }
+      @keyframes sparkle {
+        0%, 100% { opacity: .15; transform: scale(.7); }
+        50% { opacity: 1; transform: scale(1.1); }
+      }
+      @keyframes haloPulse {
+        0%, 100% { opacity: .55; transform: scale(.96); }
+        50% { opacity: .9; transform: scale(1.04); }
+      }
+      .soldier { animation: bob 3.2s ease-in-out infinite; }
+      .salute-arm {
+        transform-origin: 242px 276px;
+        transform-box: view-box;
+        animation: raise 1.15s cubic-bezier(.2, .9, .25, 1) .3s both;
+      }
+      .flag-wave {
+        transform-origin: 300px 88px;
+        transform-box: view-box;
+        animation: flagWave 2.6s ease-in-out infinite;
+      }
+      .star-core {
+        transform-origin: 180px 106px;
+        transform-box: view-box;
+        animation: starPulse 2.2s ease-in-out infinite;
+      }
+      .halo { animation: haloPulse 3s ease-in-out infinite; }
+      .spark { animation: sparkle 2s ease-in-out infinite; }
+      .spark.s2 { animation-delay: .4s; }
+      .spark.s3 { animation-delay: .9s; }
+      .spark.s4 { animation-delay: 1.3s; }
+    </style>
+  </defs>
+
+  <ellipse cx="180" cy="452" rx="112" ry="16" fill="#03050b" opacity=".35"/>
+  <circle class="halo" cx="180" cy="230" r="168" fill="url(#halo)"/>
+  <circle cx="180" cy="106" r="46" fill="url(#starGlow)"/>
+
+  <!-- 旗帜 -->
+  <g>
+    <path d="M300 62 L300 344" stroke="#6b5439" stroke-width="5"/>
+    <g class="flag-wave">
+      <path d="M302 78 C328 66 350 82 360 76 L360 142 C344 152 326 136 302 146 Z" fill="url(#flag)"/>
+      <path d="M302 78 C328 66 350 82 360 76" fill="none" stroke="#ff9a9a" stroke-width="2" opacity=".5"/>
+      <polygon points="326,92 329,100 337,100 331,105 333,113 326,108 319,113 321,105 315,100 323,100" fill="#ffd166" opacity=".9"/>
+    </g>
+  </g>
+
+  <g class="soldier" filter="url(#soft)">
+    <!-- 腿与鞋 -->
+    <path d="M132 362 L170 362 L168 430 L154 430 L150 396 L136 430 L112 430 Z" fill="#2f3a2e"/>
+    <path d="M190 362 L228 362 L242 430 L218 430 L206 396 L198 430 L174 430 Z" fill="#2f3a2e"/>
+    <path d="M154 430 L150 448 L116 448 L120 430 Z" fill="#1d1714"/>
+    <path d="M218 430 L242 448 L208 448 L198 430 Z" fill="#1d1714"/>
+    <!-- 身体 -->
+    <path d="M92 386 C98 308 128 274 164 264 L196 286 L228 264 C264 274 294 308 300 386 Z" fill="url(#uniform)"/>
+    <!-- 领口与红领章 -->
+    <path d="M164 264 L196 286 L180 314 L148 282 Z" fill="#44513f"/>
+    <path d="M228 264 L196 286 L212 314 L244 282 Z" fill="#44513f"/>
+    <path d="M168 272 L186 286 L180 300 L160 286 Z" fill="#c92f3f"/>
+    <path d="M224 272 L206 286 L212 300 L232 286 Z" fill="#c92f3f"/>
+    <path d="M180 314 L196 286 L212 314 L196 330 Z" fill="#d8c9a8"/>
+    <!-- 腰带 -->
+    <path d="M102 342 L290 342 L294 362 L98 362 Z" fill="#4a3322"/>
+    <rect x="180" y="341" width="26" height="22" rx="3" fill="#a97a52" stroke="#e0b986" stroke-width="1.5"/>
+    <rect x="186" y="347" width="14" height="10" rx="2" fill="#3c2a1c"/>
+    <circle cx="196" cy="386" r="3" fill="#c9b68d"/>
+    <!-- 左臂 -->
+    <path d="M100 286 C84 300 78 330 84 360 L106 360 C104 332 110 306 122 294 Z" fill="#3c4939"/>
+    <circle cx="94" cy="362" r="12" fill="#f2b795"/>
+    <!-- 头部 -->
+    <path d="M178 238 L178 272 Q196 286 214 272 L214 238 Z" fill="#e5ab8b"/>
+    <path d="M120 168 C120 116 144 88 180 88 C216 88 240 116 240 168 L236 214 C232 250 212 274 180 278 C148 274 128 250 124 214 Z" fill="url(#skin)"/>
+    <!-- 耳 -->
+    <ellipse cx="122" cy="184" rx="10" ry="16" fill="#f2b795"/>
+    <ellipse cx="238" cy="184" rx="10" ry="16" fill="#f2b795"/>
+    <!-- 刘海 -->
+    <path d="M124 168 C126 138 146 122 166 126 C174 138 176 148 178 156 C184 142 192 132 204 128 C224 132 236 146 236 168 C224 158 214 158 206 168 C198 154 190 152 184 164 C176 152 166 152 158 166 C150 158 136 160 124 168 Z" fill="#2b2021"/>
+    <!-- 八角帽 -->
+    <path d="M110 156 C108 96 138 82 180 82 C222 82 252 96 250 156 C230 144 206 140 180 140 C154 140 130 144 110 156 Z" fill="url(#cap)"/>
+    <path d="M112 150 C132 138 154 134 180 134 C206 134 228 138 248 150 L248 162 C228 150 206 146 180 146 C154 146 132 150 112 162 Z" fill="#34402f"/>
+    <path d="M180 84 L180 142" stroke="#2c382a" stroke-width="1.8" opacity=".45"/>
+    <path d="M144 92 L158 144" stroke="#2c382a" stroke-width="1.8" opacity=".3"/>
+    <path d="M216 92 L202 144" stroke="#2c382a" stroke-width="1.8" opacity=".3"/>
+    <path d="M110 156 C132 144 154 140 180 140" fill="none" stroke="#9aa98c" stroke-width="1.8" opacity=".45"/>
+    <path d="M250 156 C228 144 206 140 180 140" fill="none" stroke="#9aa98c" stroke-width="1.8" opacity=".45"/>
+    <!-- 红五星 -->
+    <g class="star-core">
+      <polygon points="180,92 184.1,102.2 195.2,103 186.7,110.3 189.3,121.2 180,114.5 170.7,121.2 173.3,110.3 164.8,103 175.9,102.2"
+        fill="#e23145" stroke="#ff9a9a" stroke-width="1"/>
+    </g>
+    <!-- 眉毛与眼睛 -->
+    <path d="M138 186 Q152 178 168 184" fill="none" stroke="#2a1c1c" stroke-width="5" stroke-linecap="round"/>
+    <path d="M222 186 Q208 178 192 184" fill="none" stroke="#2a1c1c" stroke-width="5" stroke-linecap="round"/>
+    <path d="M142 207 Q156 194 171 206 Q160 221 146 219 Q142 214 142 207 Z" fill="#fffaf6"/>
+    <ellipse cx="157" cy="207" rx="8" ry="10" fill="#5b3526"/>
+    <ellipse cx="157" cy="208" rx="4" ry="6" fill="#1d1110"/>
+    <circle cx="154" cy="202" r="3" fill="#fff"/>
+    <path d="M140 205 Q156 190 173 204" fill="none" stroke="#2a1a19" stroke-width="4" stroke-linecap="round"/>
+    <path d="M218 207 Q204 194 189 206 Q200 221 214 219 Q218 214 218 207 Z" fill="#fffaf6"/>
+    <ellipse cx="203" cy="207" rx="8" ry="10" fill="#5b3526"/>
+    <ellipse cx="203" cy="208" rx="4" ry="6" fill="#1d1110"/>
+    <circle cx="200" cy="202" r="3" fill="#fff"/>
+    <path d="M220 205 Q204 190 187 204" fill="none" stroke="#2a1a19" stroke-width="4" stroke-linecap="round"/>
+    <!-- 鼻子与笑容 -->
+    <path d="M176 224 Q180 229 184 224" fill="none" stroke="#c98a72" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M164 241 Q180 252 196 241" fill="none" stroke="#9c4f4a" stroke-width="3.4" stroke-linecap="round"/>
+    <ellipse cx="144" cy="232" rx="12" ry="6" fill="#f2877a" opacity=".2"/>
+    <ellipse cx="216" cy="232" rx="12" ry="6" fill="#f2877a" opacity=".2"/>
+    <!-- 敬礼的右臂 -->
+    <g class="salute-arm">
+      <path d="M220 278 C238 282 256 296 268 318 L292 300 C276 270 256 254 232 250 Z" fill="#4c5a49" stroke="#2c372b" stroke-width="1.5"/>
+      <path d="M266 316 L290 300 L300 316 L278 332 Z" fill="#3b4838"/>
+      <path d="M268 292 C278 270 274 244 258 226 L278 214 C296 236 300 270 288 300 Z" fill="#5a6a54" stroke="#2c372b" stroke-width="1.5"/>
+      <path d="M258 226 C250 210 244 200 232 192 L252 178 C266 190 274 204 278 214 Z" fill="#65765f"/>
+      <path d="M232 190 C226 182 220 178 212 178 C204 178 198 184 196 192 C194 200 198 208 206 212 C214 216 222 214 228 208 C232 204 234 198 232 190 Z" fill="#f2b795"/>
+      <path d="M210 180 C216 178 224 182 228 188" fill="none" stroke="#d99a86" stroke-width="2" opacity=".6"/>
+      <path d="M202 196 C206 202 212 206 220 206" fill="none" stroke="#d99a86" stroke-width="1.6" opacity=".45"/>
+      <path d="M220 278 C238 282 256 296 268 318" fill="none" stroke="#8fe9ff" stroke-width="1.5" opacity=".25"/>
+    </g>
+  </g>
+
+  <!-- 闪烁星点 -->
+  <g fill="#ffd166">
+    <path class="spark" d="M64 160 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 Z"/>
+    <path class="spark s2" d="M296 206 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5 Z"/>
+    <path class="spark s3" d="M72 320 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 Z"/>
+    <path class="spark s4" d="M286 366 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5 Z"/>
+  </g>
+</svg>

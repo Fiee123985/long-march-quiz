@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#3a1e2a">
+  <meta name="description" content="长征故事地图：点击长征路线上的地点，阅读湘江、遵义、赤水、泸定桥、夹金山、草地与会师的故事。">
+  <title>长征故事地图 · 长征问答</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/campaign.css">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/story-map.css">
+</head>
+<body data-page="story">
+  <div class="story-page" id="screen-story">
+    <header class="home-nav">
+      <div class="home-nav__inner">
+        <a class="home-brand" href="index.html">
+          <span>★</span>
+          <b>长征胜利90周年</b>
+          <em>红色知识闯关</em>
+        </a>
+
+        <nav class="home-nav__links site-links" aria-label="站点导航">
+          <a href="index.html" data-page="home">首页</a>
+          <a href="game.html?level=1" data-page="game" data-start-link>闯关答题</a>
+          <a href="story.html" data-page="story">长征故事</a>
+          <a href="bank.html" data-page="bank">题库</a>
+          <a href="records.html" data-page="records">我的成就</a>
+        </nav>
+
+        <div class="home-nav__right">
+          <a class="nav-progress" href="records.html">
+            <span>长征进度</span><b id="nav-progress">0%</b>
+          </a>
+          <button class="sound-toggle" id="sound-toggle" type="button" aria-label="关闭音效">🔊</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="story-main">
+      <header class="story-head">
+        <div class="story-seal" aria-hidden="true">图</div>
+        <div class="story-head__text">
+          <span class="story-kicker">LONG MARCH STORY MAP</span>
+          <h1>长征故事地图</h1>
+          <p>中国地图上的八处地点，一条二万五千里的路。点击地图或地点标签，阅读发生在那里的故事。</p>
+        </div>
+        <div class="story-count" id="stories-count">8 个地点</div>
+      </header>
+
+      <div class="story-layout">
+        <section class="story-map-panel" aria-label="长征故事地图">
+          <div class="story-map" id="story-map">
+            <img class="story-map__bg" src="assets/china-map.svg" alt="中国地图与长征行军路线示意">
+            <div class="story-map__points" id="story-map-points"></div>
+            <div class="story-map__hint">点击地点查看故事</div>
+          </div>
+          <div class="story-map__legend">
+            <span><i class="legend-dot"></i>故事地点</span>
+            <span><i class="legend-route"></i>长征路线</span>
+            <span>中国地图 · 路线示意</span>
+          </div>
+          <div class="story-places" id="story-places" aria-label="故事地点列表"></div>
+        </section>
+
+        <aside class="story-panel" id="story-panel" aria-live="polite"></aside>
+      </div>
+
+      <footer class="story-foot">
+        <p>长征精神 永放光芒 —— 纪念中国工农红军长征胜利 90 周年</p>
+        <small>故事依据公开党史资料整理，用于知识普及；不同资料在细节上可能存在差异。</small>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/questions.js"></script>
+  <script src="js/stories.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/story.js"></script>
+</body>
+</html>

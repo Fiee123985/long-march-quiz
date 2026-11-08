@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#081322"/>
+      <stop offset=".45" stop-color="#163247"/>
+      <stop offset=".72" stop-color="#4b5b61"/>
+      <stop offset="1" stop-color="#c98d76"/>
+    </linearGradient>
+    <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9a184"/>
+      <stop offset=".25" stop-color="#7c7f86"/>
+      <stop offset=".6" stop-color="#2c4c56"/>
+      <stop offset="1" stop-color="#0b1e26"/>
+    </linearGradient>
+    <linearGradient id="mountain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b3f4a"/>
+      <stop offset="1" stop-color="#101f27"/>
+    </linearGradient>
+    <radialGradient id="moonGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ffe9cf" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#ffe9cf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="flag" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e63946"/>
+      <stop offset="1" stop-color="#971a29"/>
+    </linearGradient>
+    <radialGradient id="vig" cx=".5" cy=".46" r=".72">
+      <stop offset=".5" stop-color="#03050b" stop-opacity="0"/>
+      <stop offset="1" stop-color="#03050b" stop-opacity=".55"/>
+    </radialGradient>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="clip"><rect width="800" height="450"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#clip)">
+    <rect width="800" height="450" fill="url(#sky)"/>
+    <circle cx="620" cy="104" r="130" fill="url(#moonGlow)"/>
+    <circle cx="620" cy="104" r="30" fill="#f7e5ca" opacity=".9"/>
+
+    <!-- 山 -->
+    <path d="M-40 260 L70 200 L140 240 L230 182 L330 254 L420 206 L520 256 L610 196 L700 252 L800 212 L800 320 L-40 320 Z" fill="url(#mountain)" opacity=".9"/>
+    <path d="M-40 286 C120 256 260 278 400 270 C540 262 680 280 800 264 L800 320 L-40 320 Z" fill="#0d1a22"/>
+
+    <!-- 湖 -->
+    <path d="M-40 300 C160 286 340 300 520 292 C660 286 740 296 840 290 L840 450 L-40 450 Z" fill="url(#lake)"/>
+    <g fill="none" stroke="#ffd3ae" stroke-linecap="round" opacity=".35">
+      <path d="M420 320 C470 314 520 322 570 316" stroke-width="3"/>
+      <path d="M300 342 C360 336 420 344 480 338" stroke-width="2.5"/>
+      <path d="M500 370 C560 364 620 372 680 366" stroke-width="2"/>
+    </g>
+    <g fill="none" stroke="#9fc8d1" stroke-linecap="round" opacity=".25">
+      <path d="M120 350 C200 342 280 350 360 344" stroke-width="2"/>
+      <path d="M560 400 C640 392 720 400 800 394" stroke-width="2"/>
+    </g>
+
+    <!-- 远岸灯火 -->
+    <g fill="#ffcf7a">
+      <circle cx="680" cy="286" r="2" opacity=".8"/>
+      <circle cx="700" cy="282" r="1.4" opacity=".6"/>
+      <circle cx="118" cy="284" r="1.6" opacity=".6"/>
+    </g>
+
+    <!-- 近岸 -->
+    <path d="M-40 386 C100 360 200 380 320 382 C440 384 540 366 660 380 C720 388 760 386 840 376 L840 450 L-40 450 Z" fill="#0a1414"/>
+    <path d="M-40 412 C120 392 260 410 400 408 C540 406 680 390 840 404 L840 450 L-40 450 Z" fill="#050c0e"/>
+
+    <!-- 红旗 -->
+    <g>
+      <path d="M560 372 L562 264" stroke="#4e3624" stroke-width="4"/>
+      <path d="M561 268 C580 258 596 270 614 262 C608 278 616 290 610 302 C592 308 576 296 561 302 Z" fill="url(#flag)" filter="url(#glow)"/>
+      <polygon points="580,278 583,285 590,285 585,290 587,297 580,293 573,297 575,290 570,285 577,285" fill="#ffd166" opacity=".85"/>
+    </g>
+
+    <!-- 结盟的两个人 -->
+    <g fill="#080d0f">
+      <g transform="translate(356 370)">
+        <circle cx="0" cy="-42" r="8"/>
+        <path d="M-8 -32 Q0 -38 8 -32 L10 0 L4 0 L2 -14 L0 0 L-5 0 L-8 -14 L-12 0 Z"/>
+        <path d="M-4 0 L-8 32 M4 0 L9 32" stroke="#080d0f" stroke-width="6" stroke-linecap="round"/>
+        <path d="M8 -26 L30 -22" stroke="#080d0f" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(430 370)">
+        <circle cx="0" cy="-42" r="8"/>
+        <path d="M-8 -32 Q0 -38 8 -32 L10 0 L4 0 L2 -14 L0 0 L-5 0 L-8 -14 L-12 0 Z"/>
+        <path d="M-4 0 L-8 32 M4 0 L9 32" stroke="#080d0f" stroke-width="6" stroke-linecap="round"/>
+        <path d="M-8 -26 L-30 -22" stroke="#080d0f" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <!-- 相握的手 -->
+      <circle cx="393" cy="348" r="4"/>
+    </g>
+
+    <!-- 芦苇 -->
+    <g stroke="#0a1414" stroke-linecap="round" opacity=".9">
+      <path d="M60 450 Q68 390 62 354 M78 450 Q86 400 84 366 M98 450 Q106 410 104 382" stroke-width="2.5"/>
+      <path d="M700 450 Q708 396 702 360 M718 450 Q726 406 724 374" stroke-width="2.5"/>
+    </g>
+
+    <g filter="url(#blur)" opacity=".25">
+      <ellipse cx="420" cy="330" rx="280" ry="26" fill="#e8d4c2"/>
+    </g>
+
+    <rect width="800" height="450" fill="url(#vig)"/>
+  </g>
+</svg>
